@@ -1,34 +1,12 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-class Perhitungan{
-private:
-    int Tabungan = 100000;
-public:
-    int Hutang = 0;
-    void hitungTabungan(int minjem){
-        if(minjem > 0){
-            Hutang = minjem;
-            Tabungan += Hutang;
-        }
-        else{
-            Hutang = minjem;
-            Tabungan -= Hutang;
-        }
-
-    }
-    auto CetakUang(){
-        int jumlah = Tabungan;
-        return jumlah;
-    }
-
-};
+#include <graphics.h>
+#include <conio.h>
 
 int main(){
-    Perhitungan pr;
-    int a;
-    cin >> a;
-    pr.hitungTabungan(a);
-    cout << pr.CetakUang();
+    int gd = DETECT, gm;
+    initgraph(&gd,&gm,NULL);
+
+    circle(200,200,100);
+
+    getch();
+    closegraph();
 }
