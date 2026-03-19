@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 class MovingCircle {
 private:
@@ -37,20 +38,21 @@ public:
         setcolor(color);
         circle(x, y, r);
     }
-
-    void makinbanyak(){
-
+    void kotak(){
+        setcolor(color);
+        rectangle(x,y,x+10,y+10);
     }
+
 };
 
 int main() {
 
     int gd = DETECT, gm;
-    initgraph(&gd, &gm, "");
+    initgraph(&gd, &gm, "Ayub's Project");
 
     srand(time(NULL));
+    int N = rand() % 30;
 
-    const int N = 20;
     MovingCircle c[N];
 
     int maxX = getmaxx();
@@ -60,15 +62,15 @@ int main() {
         c[i].init(maxX, maxY);
     }
 
-    while(!kbhit()) {
+    while(!kbhit()){
 
         cleardevice();
 
         for(int i = 0; i < N; i++) {
             c[i].pindah(maxX, maxY);
             c[i].draw();
+            c[i].kotak();
         }
-
         delay(30);
     }
 
